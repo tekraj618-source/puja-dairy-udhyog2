@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Contact · Puja Dairy Udhyog{% endblock %}
+{% block content %}
+<section class="page-hero compact"><span class="eyebrow">Get in touch</span><h1>Let's talk.</h1><p>Ask about products, delivery, cakes or anything else.</p></section>
+<section class="section contact-layout">
+<form method="post" class="form-card"><div class="form-row"><label>Name*<input required name="name"></label><label>Phone*<input required name="phone"></label></div><label>Email<input type="email" name="email"></label><label>Message*<textarea required name="message" rows="7" placeholder="Write your message..."></textarea></label><button class="btn btn-primary" type="submit">Send message →</button></form>
+<aside class="contact-info"><div><span class="eyebrow">Call</span><a href="tel:9766100969">9766100969</a></div><div><span class="eyebrow">Email</span><a href="mailto:tekraj618@gmail.com">tekraj618@gmail.com</a></div><div><span class="eyebrow">Address</span><p>Dhangadhi, Sudurpaschim, Nepal</p></div><div><span class="eyebrow">Hours</span><p>Contact us for current availability and delivery timing.</p></div></aside>
+</section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Puja Dairy Udhyog · Fresh Dairy in Dhangadhi{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">Dhangadhi · Sudurpaschim · Nepal</div>
+    <h1>Fresh dairy.<br><em>Made with trust.</em></h1>
+    <p>Milk, dahi, mahi, paneer, butter, ghee and celebration cakes — prepared for your everyday table and special moments.</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="{{ url_for('order') }}">Order for Delivery →</a><a class="btn btn-ghost" href="{{ url_for('products') }}">View today's rates</a></div>
+    <div class="trust-row"><span>✦ 5+ years of trust</span><span>✦ Fresh products</span><span>✦ Local business</span></div>
+  </div>
+  <div class="hero-art">
+    <div class="orb orb-a"></div><div class="orb orb-b"></div>
+    <div class="milk-card">
+      <div class="milk-icon">🥛</div>
+      <b>Pure & Fresh</b><small>Daily dairy goodness</small>
+    </div>
+    <div class="floating-note">TODAY'S<br><strong>FRESHNESS</strong></div>
+  </div>
+</section>
+
+<section class="section intro">
+  <div><span class="eyebrow">Our promise</span><h2>Good food starts<br>with good ingredients.</h2></div>
+  <p>We bring dependable dairy products to families in Dhangadhi with a focus on freshness, quality and friendly service. Browse our rates, place a delivery request, or message the owner directly.</p>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><span class="eyebrow">Popular today</span><h2>Our dairy counter</h2></div><a href="{{ url_for('products') }}">See all products →</a></div>
+  <div class="product-grid">
+    {% for p in products[:6] %}
+    <article class="product-card">
+      <div class="product-icon">{{ p.icon }}</div><span class="tag">Fresh</span>
+      <h3>{{ p.name }}</h3><p>{{ p.description }}</p>
+      <div class="price">Rs. {{ "%.0f"|format(p.price) }} <small>/ {{ p.unit.replace('per ','') }}</small></div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="delivery-banner">
+  <div><span class="eyebrow">At your doorstep</span><h2>Need dairy delivered?</h2><p>Send your order details and we'll receive it in our owner dashboard.</p></div>
+  <a class="btn btn-light" href="{{ url_for('order') }}">Start an order →</a>
+</section>
+
+<section class="section split">
+  <div class="testimonial"><div class="quote">“</div><p>Fresh dairy products for everyday life, made with care for our local community.</p><strong>— Puja Dairy Udhyog</strong></div>
+  <div class="contact-card"><span class="eyebrow">Talk to us</span><h2>Questions? We're here.</h2><p>Call us or send a message through the website.</p><a href="tel:9766100969" class="phone">9766100969</a><a class="text-link" href="{{ url_for('contact') }}">Send a message →</a></div>
+</section>
+{% endblock %}
