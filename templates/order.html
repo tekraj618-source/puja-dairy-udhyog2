@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Order Delivery · Puja Dairy Udhyog{% endblock %}
+{% block content %}
+<section class="page-hero compact"><span class="eyebrow">Delivery request</span><h1>Place your order</h1><p>Fill in your details. You can choose quantities and the total will calculate automatically.</p></section>
+<section class="section order-layout">
+<form method="post" class="form-card" id="orderForm">
+  <div class="form-row"><label>Your name*<input required name="customer_name" placeholder="Full name"></label><label>Phone*<input required name="phone" placeholder="98XXXXXXXX"></label></div>
+  <label>Delivery address*<textarea required name="address" placeholder="Area, tole, landmark"></textarea></label>
+  <h3>Select products</h3>
+  <div class="order-products">
+  {% for p in products %}
+    <div class="order-product">
+      <span class="op-icon">{{ p.icon }}</span><div><b>{{ p.name }}</b><small>Rs. {{ "%.0f"|format(p.price) }} / {{ p.unit.replace('per ','') }}</small></div>
+      <input class="qty" data-name="{{ p.name }}" data-price="{{ p.price }}" type="number" min="0" value="0">
+    </div>
+  {% endfor %}
+  </div>
+  <label>Note (optional)<textarea name="note" placeholder="Preferred delivery time, cake message, etc."></textarea></label>
+  <input type="hidden" name="items" id="items">
+  <input type="hidden" name="total" id="total">
+  <button class="btn btn-primary full" type="submit">Send delivery request →</button>
+</form>
+<aside class="summary-card"><span class="eyebrow">Order summary</span><div id="summary"><p class="muted">Add products to see your summary.</p></div><div class="grand"><span>Total</span><strong id="grandTotal">Rs. 0</strong></div><div class="small-note">Your request is sent to the owner for confirmation.</div></aside>
+</section>
+{% endblock %}
