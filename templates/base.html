@@ -4,4 +4,16 @@
 {% with messages=get_flashed_messages(with_categories=true) %}<div class="flash-wrap">{% for c,m in messages %}<div class="flash {{ c }}">{{ m }}</div>{% endfor %}</div>{% endwith %}
 {% block content %}{% endblock %}
 <footer class="footer"><div><div class="footer-brand">Puja Dairy Udhyog</div><p>Fresh dairy goodness, made with care for families in Dhangadhi.</p><p>{{ shop.trust }}</p></div><div><b>Explore</b><p><a href="{{ url_for('products') }}">Products & Rates</a><br><a href="{{ url_for('delivery') }}">Delivery</a><br><a href="{{ url_for('track') }}">Track Order</a></p></div><div><b>Visit</b><p>{{ shop.address }}<br>{{ shop.email }}</p></div><div><b>Call</b><p class="footer-phone">{{ shop.phone }}</p><a class="btn btn-light" href="{{ url_for('order') }}">Start an Order</a></div></footer>
-<div class="copyright"><span class="copyright-logo">P</span> © 2026 Puja Dairy Udhyog · 5+ years of trust</div><script src="{{ url_for('static',filename='js/app.js') }}"></script></body></html>
+<div class="copyright">
+    <img
+        src="{{ url_for('static', filename='images/tk-logo.png') }}"
+        alt="TK Logo"
+        class="copyright-logo"
+    >
+
+    <span>
+        © 2026 Puja Dairy Udhyog ·
+        <em>5+ years of trust</em>
+    </span>
+</div>
+  <script src="{{ url_for('static',filename='js/app.js') }}"></script></body></html>
